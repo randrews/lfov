@@ -25,6 +25,21 @@ settings:callback(some_callback)
 settings:beam(2, 4, lfov.northeast, 90) -- facing NE, 90 degrees wide
 ```
 
+Callbacks work like this:
+
+```lua
+-- Opaque callbacks take a point and return true iff you can't see through them
+function opaque(x, y)
+    return my_map:wall_at(x, y)
+end
+
+-- Lighting callbacks are called for each cell that's visible,
+-- with the cell's coordinates and distance from the origin
+function lit(x, y, x_delta, y_delta)
+    table.insert(visible_cells, {x, y})
+end
+```
+
 Features:
 ---------
 
