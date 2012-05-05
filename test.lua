@@ -27,7 +27,17 @@ end
 
 require 'lfov'
 
-lfov.beam(opaque, lit, 2, 4, 0, 180)
+sets = lfov.new()
+sets:opacity(opaque)
+sets:callback(lit)
+-- sets:beam(2, 4, lfov.northeast, 180)
+sets:circle(3, 4)
+
+assert(sets:opacity() == opaque)
+assert(sets:callback() == lit)
+
+assert(lfov.east == 0);
+assert(lfov.west == 4); -- etc...
 
 for y = 0, 9 do
    local s = ''

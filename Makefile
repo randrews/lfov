@@ -1,10 +1,11 @@
 CC = gcc
 LUA_DIR = /usr/local/include
 FOV_DIR = .
+HEADERS = fov.h lfov.h
 
 default: lfov.so
 
-.c.o:
+.c.o: ${HEADERS}
 	${CC} $? -c -o $@ -I${LUA_DIR} -I${FOV_DIR}
 
 lfov.so: fov.o lfov.o
