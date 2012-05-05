@@ -12,7 +12,7 @@ lfov.so: fov.o lfov.o
 	${CC} *.o -o lfov.so -shared -undefined dynamic_lookup
 
 test: lfov.so
-	lua test.lua
+	lua example.lua
 
 clean:
 	rm -f *~
